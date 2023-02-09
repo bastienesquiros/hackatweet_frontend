@@ -25,13 +25,12 @@ function Login() {
 					height={250}
 				/>
 				<div className={styles.sentence1}>
-					<h1 className={styles.h1}>See what's</h1>
-				</div>
-				<div className={styles.sentence2}>
-					<h1 className={styles.h2}>happening</h1>
+					<h1 className={styles.h1}>
+						See what's<br></br>happening
+					</h1>
 				</div>
 				<div className={styles.sentence3}>
-					<h2>Join Hackatweet today.</h2>
+					<h2 className={styles.h2}>Join Hackatweet today.</h2>
 				</div>
 				<div className={styles.button}>
 					<button className={styles.signup}>Sign Up</button>
