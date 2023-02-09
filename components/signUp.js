@@ -28,7 +28,7 @@ function SignUp(){
             <h2 id={styles.h2}>Create your hackatweet account</h2>
             <input placeholder="Firstname" onChange={(e)=>{setFirstName(e.target.value)}} value={firstname} className={styles.inputs}/>
             <input placeholder="Username" onChange={(e)=>{setUsername(e.target.value)}} value={username} className={styles.inputs}/>
-            <input type="password" placeholder="Password" onChange={(e)=>{setPassword(e.target.value)}} value={password}  className={styles.inputs} type="password"/>
+            <input type="password" placeholder="Password" onChange={(e)=>{setPassword(e.target.value)}} value={password}  className={styles.inputs}/>
             <button onClick={()=>{signupHandleClick()}} className={styles.signupButton} >Sign Up</button>
         </div>
     </div>
