@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import styles from '../styles/SignUp.module.css'
+import styles from '../styles/SignUp.module.css';
+import Image from 'next/image';
 
 function SignUp(){
     const [firstname,setFirstName]=useState('')
@@ -23,11 +24,11 @@ function SignUp(){
             <div className={styles.header}>
                 <h1 id={styles.cross}>x</h1>
             </div>
-            <h2 id={styles.h2}>A</h2>
+            <Image src="/logo.png" width={30} height={30} />
             <h2 id={styles.h2}>Create your hackatweet account</h2>
-            <input onChange={(e)=>{setFirstName(e.target.value)}} value={firstname} className={styles.inputs}/>
-            <input onChange={(e)=>{setUsername(e.target.value)}} value={username} className={styles.inputs}/>
-            <input onChange={(e)=>{setPassword(e.target.value)}} value={password}  className={styles.inputs} type="password"/>
+            <input placeholder="Firstname" onChange={(e)=>{setFirstName(e.target.value)}} value={firstname} className={styles.inputs}/>
+            <input placeholder="Username" onChange={(e)=>{setUsername(e.target.value)}} value={username} className={styles.inputs}/>
+            <input type="password" placeholder="Password" onChange={(e)=>{setPassword(e.target.value)}} value={password}  className={styles.inputs} type="password"/>
             <button onClick={()=>{signupHandleClick()}} className={styles.signupButton} >Sign Up</button>
         </div>
     </div>
@@ -35,4 +36,4 @@ function SignUp(){
     
 }
 
-export default SignUp; 
+export default SignUp;
