@@ -15,7 +15,11 @@ function SignUp() {
 		fetch('http://localhost:3000/users/signup', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ firstname: firstname, username: username, password: password }),
+			body: JSON.stringify({
+				firstname: firstname,
+				username: username,
+				password: password,
+			}),
 		})
 			.then((data) => data.json())
 			.then((res) => {
