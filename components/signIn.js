@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import styles from '../styles/SignIn.module.css';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addCreditentialsToStore } from '../reducers/users';
 
 function SignIn() {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
+	const [firstname, setFirstName] = useState('');
 
 	const signInHandleClick = () => {
 		fetch('http://localhost:3000/users/signin', {
@@ -18,6 +21,7 @@ function SignIn() {
 					window.location.href = '/homeTweets';
 				}
 			});
+		dispatch(addCreditentialsToStore({ username: username, firstname: firstname }));
 	};
 	return (
 		<div className={styles.container}>

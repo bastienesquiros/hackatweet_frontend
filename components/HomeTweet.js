@@ -11,7 +11,7 @@ function HomeTweet() {
 	const [like, setLike] = useState();
 	const profile_lastname = useSelector((state) => state.users.value.firstname);
 	const profile_username = useSelector((state) => state.users.value.username);
-
+	const [tweetContent, setTweetContent] = useState(null);
 	console.log(profile_username);
 	const [allTweets, setAlltTweets] = useState([]);
 	const addTweet = () => {};
@@ -39,6 +39,16 @@ function HomeTweet() {
 
 		personalLike.push(<FontAwesomeIcon key={i} icon={faHeart} onClick={() => setLike(like === false)} style={style} className="like" />);
 	}
+
+	const handleTweetClick = () => {
+		fetch('http://localhost:3000/users/addTweet', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ tweetContent: tweetContent, username: profile_username }),
+		})
+			.then((response) => response.json())
+			.then((res) => console.log(res));
+	};
 
 	const handleLogoutClick = () => {
 		window.location.href = '/';
@@ -70,12 +80,21 @@ function HomeTweet() {
 				<div className={styles.middle2}>
 					<h1 className={styles.title}>Home</h1>
 					<div className={styles.textarea}>
-						<input className={styles.text} text="text" name="text" placeholder="What's up?" />
+						<input
+							onChange={(e) => {
+								setTweetContent(e.target.value);
+							}}
+							className={styles.text}
+							text="text"
+							name="text"
+							placeholder="What's up?"
+						/>
 					</div>
 					<button
 						className={styles.button2}
 						onClick={() => {
 							getAllTweet();
+							handleTweetClick();
 						}}
 					>
 						Tweet

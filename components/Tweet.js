@@ -22,6 +22,10 @@ function Tweet(props) {
 		personalLike.push(<FontAwesomeIcon key={i} icon={faHeart} onClick={() => setLike(!like)} style={style} className="like" />);
 	}
 
+	const handleDeleteClick = () => {
+		fetch;
+	};
+
 	return (
 		<div className={styles.middle3}>
 			<div className={styles.middle4}>
@@ -41,7 +45,7 @@ function Tweet(props) {
 					{personalLike} {props.likes}
 				</span>
 				<span className={styles.trash}>
-					<FontAwesomeIcon icon={faTrashCan} />
+					<FontAwesomeIcon onClick={() => handleDeleteClick()} icon={faTrashCan} />
 				</span>
 			</div>
 		</div>
