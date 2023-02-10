@@ -2,6 +2,10 @@ import Image from 'next/image';
 import styles from '../styles/HomeTweet.module.css';
 
 function HomeTweet() {
+	const handleLogoutClick = () => {
+		window.location.href = '/';
+	};
+
 	return (
 		<div className={styles.main}>
 			<div className={styles.left}>
@@ -13,7 +17,14 @@ function HomeTweet() {
 					<div className={styles.down2}>
 						<h3 className={styles.name}>John</h3>
 						<h3 className={styles.name2}>@JohnCena</h3>
-						<button className={styles.button1}>Logout</button>
+						<button
+							onClick={() => {
+								handleLogoutClick();
+							}}
+							className={styles.button1}
+						>
+							Logout
+						</button>
 					</div>
 				</div>
 			</div>
