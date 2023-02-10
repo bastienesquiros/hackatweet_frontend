@@ -96,6 +96,7 @@
 	height: 30px;
 	font-size: 15px;
 	color: grey;
+	outline: none;
 }
 
 .button2 {
@@ -109,6 +110,11 @@
 	border-radius: 20px;
 	border-style: none;
 	text-align: center;
+}
+
+.button2:hover {
+	cursor: pointer;
+	background-color: rgb(30, 142, 212);
 }
 .title2 {
 	color: white;
