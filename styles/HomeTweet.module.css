@@ -83,7 +83,7 @@
 }
 .title {
 	color: white;
-	margin-left: 10px;
+	margin-left: 20px;
 	font-size: 20px;
 }
 
@@ -109,4 +109,16 @@
 	border-radius: 20px;
 	border-style: none;
 	text-align: center;
+}
+.title2 {
+	color: white;
+	margin-left: 20px;
+	font-size: 20px;
+}
+.textarea2 {
+	background-color: rgb(31, 31, 31);
+	height: 100%;
+	width: 92%;
+	margin-left: 20px;
+	border-radius: 5px;
 }

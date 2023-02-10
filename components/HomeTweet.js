@@ -37,13 +37,18 @@ function HomeTweet() {
 							className={styles.text}
 							text="text"
 							name="text"
-							value="What's up?"
+							placeholder="What's up?"
 						/>
 					</div>
 					<button className={styles.button2}>Tweet</button>
 				</div>
 			</div>
-			<div className={styles.right}></div>
+			<div className={styles.right}>
+				<div className={styles.right2}>
+					<h1 className={styles.title2}>Trends</h1>
+					<div className={styles.textarea2}></div>
+				</div>
+			</div>
 		</div>
 	);
 }
