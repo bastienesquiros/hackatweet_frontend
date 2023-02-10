@@ -83,7 +83,7 @@
 }
 .title {
 	color: white;
-	margin-left: 10px;
+	margin-left: 20px;
 	font-size: 20px;
 }
 
@@ -96,6 +96,7 @@
 	height: 30px;
 	font-size: 15px;
 	color: grey;
+	outline: none;
 }
 
 .button2 {
@@ -109,4 +110,63 @@
 	border-radius: 20px;
 	border-style: none;
 	text-align: center;
+}
+
+.button2:hover {
+	cursor: pointer;
+	background-color: rgb(30, 142, 212);
+}
+.title2 {
+	color: white;
+	margin-left: 20px;
+	font-size: 20px;
+}
+.textarea2 {
+	background-color: rgb(31, 31, 31);
+	height: 100%;
+	width: 92%;
+	margin-left: 20px;
+	border-radius: 5px;
+}
+
+.middle3 {
+	border-bottom: 0.5px solid grey;
+	padding-bottom: 20px;
+}
+
+.middle4 {
+	display: flex;
+	flex-direction: row;
+}
+.name3 {
+	color: white;
+	margin-left: 10px;
+	margin-top: 30px;
+	font-size: 15px;
+}
+.name4 {
+	color: grey;
+	margin-left: 5px;
+	margin-top: 30px;
+	font-size: 15px;
+}
+.moment {
+	color: grey;
+	margin-left: 5px;
+	margin-top: 30px;
+	font-size: 15px;
+}
+.comment {
+	color: white;
+	margin-left: 25px;
+	margin-top: 20px;
+	font-size: 15px;
+}
+.hashtag {
+	color: rgb(29 161 242);
+}
+.like {
+	color: white;
+	cursor: pointer;
+	margin-left: 25px;
 }
