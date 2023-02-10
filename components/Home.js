@@ -1,5 +1,5 @@
 import styles from '../styles/Home.module.css';
-import SignUp from './signUp';
+import SignUp from './Signup';
 function Home() {
   return (
     <div className={styles.container}>
