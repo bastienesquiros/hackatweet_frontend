@@ -3,6 +3,7 @@ import styles from "../styles/HomeTweet.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import Tweet from "./Tweet";
 
 function HomeTweet() {
 	const [like, setLike] = useState();
