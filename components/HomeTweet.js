@@ -8,7 +8,25 @@ import { useSelector } from 'react-redux';
 
 function HomeTweet() {
 	const url = 'http://localhost:3000/users/';
-	const [like, setLike] = useState();
+	const [like, setLike] = useState(false);
+	const [count, setCount] = useState(0);
+
+	const handleChange = (event) => {
+		setCount(event.target.value.length);
+		const [allTweets, setAlltTweets] = useState([]);
+		const addTweet = () => {};
+		const getAllTweet = () => {
+			fetch(url + 'getAllTweets')
+				.then((allTweet) => allTweet.json())
+				.then((allTweetsFromFetch) => {
+					const tweetsToDisplay = allTweetsFromFetch.allTweets.map((obj) => {
+						return <Tweet firstname={obj.firstname} username={obj.firstname} content={obj.tweetContent} hashtags={obj.hashtags} likes={obj.likes} id={obj._id} date={obj.date} />;
+					});
+					setAlltTweets([...allTweets, tweetsToDisplay]);
+				});
+		};
+	};
+
 	const profile_lastname = useSelector((state) => state.users.value.firstname);
 	const profile_username = useSelector((state) => state.users.value.username);
 	const [tweetContent, setTweetContent] = useState(null);
@@ -37,7 +55,7 @@ function HomeTweet() {
 			style = styleblack;
 		}
 
-		personalLike.push(<FontAwesomeIcon key={i} icon={faHeart} onClick={() => setLike(like === false)} style={style} className="like" />);
+		personalLike.push(<FontAwesomeIcon key={i} icon={faHeart} onClick={() => setLike(!like)} style={style} className="like" />);
 	}
 
 	const handleTweetClick = () => {
@@ -82,11 +100,15 @@ function HomeTweet() {
 					<div className={styles.textarea}>
 						<input
 							onChange={(e) => {
+								{
+									handleChange;
+								}
 								setTweetContent(e.target.value);
 							}}
 							className={styles.text}
 							text="text"
 							name="text"
+							maxlength="280"
 							placeholder="What's up?"
 						/>
 					</div>
