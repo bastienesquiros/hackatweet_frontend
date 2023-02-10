@@ -7,11 +7,24 @@ import Tweet from './Tweet';
 import { useSelector } from 'react-redux';
 
 function HomeTweet() {
+	const url = 'http://localhost:3000/users/';
 	const [like, setLike] = useState();
 	const profile_lastname = useSelector((state) => state.users.value.firstname);
 	const profile_username = useSelector((state) => state.users.value.username);
 
 	console.log(profile_username);
+	const [allTweets, setAlltTweets] = useState([]);
+	const addTweet = () => {};
+	const getAllTweet = () => {
+		fetch(url + 'getAllTweets')
+			.then((allTweet) => allTweet.json())
+			.then((allTweetsFromFetch) => {
+				const tweetsToDisplay = allTweetsFromFetch.allTweets.map((obj) => {
+					return <Tweet firstname={obj.firstname} username={obj.firstname} content={obj.tweetContent} hashtags={obj.hashtags} likes={obj.likes} id={obj._id} date={obj.date} />;
+				});
+				setAlltTweets([...allTweets, tweetsToDisplay]);
+			});
+	};
 
 	const personalLike = [];
 	let style = {};
@@ -59,9 +72,16 @@ function HomeTweet() {
 					<div className={styles.textarea}>
 						<input className={styles.text} text="text" name="text" placeholder="What's up?" />
 					</div>
-					<button className={styles.button2}>Tweet</button>
+					<button
+						className={styles.button2}
+						onClick={() => {
+							getAllTweet();
+						}}
+					>
+						Tweet
+					</button>
 				</div>
-				<Tweet />
+				{allTweets}
 			</div>
 			<div className={styles.right}>
 				<div className={styles.right2}>
