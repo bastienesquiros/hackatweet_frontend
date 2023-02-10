@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import styles from '../styles/SignUp.module.css';
 import Image from 'next/image';
+import { useDispatch } from 'react-redux';
+import { addCreditentialsToStore } from '../reducers/users';
 
 function SignUp() {
 	const [firstname, setFirstName] = useState('');
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
+
+	const dispatch = useDispatch();
 
 	const signupHandleClick = () => {
 		fetch('http://localhost:3000/users/signup', {
@@ -19,7 +23,10 @@ function SignUp() {
 					window.location.href = '/homeTweets';
 				}
 			});
+
+		dispatch(addCreditentialsToStore({ username: username, firstname: firstname }));
 	};
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.signUpCard}>
