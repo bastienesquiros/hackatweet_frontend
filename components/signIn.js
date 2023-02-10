@@ -8,7 +8,7 @@ function SignIn() {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [firstname, setFirstName] = useState('');
-
+	const dispatch = useDispatch();
 	const signInHandleClick = () => {
 		fetch('http://localhost:3000/users/signin', {
 			method: 'POST',
