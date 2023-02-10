@@ -5,7 +5,12 @@ import { faHeart, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 function HomeTweet() {
-	const [like, setLike] = useState();
+	const [like, setLike] = useState(false);
+	const [count, setCount] = useState(0);
+
+	const handleChange = (event) => {
+		setCount(event.target.value.length);
+	};
 
 	const personalLike = [];
 	let style = {};
@@ -22,7 +27,7 @@ function HomeTweet() {
 			<FontAwesomeIcon
 				key={i}
 				icon={faHeart}
-				onClick={() => setLike(like === false)}
+				onClick={() => setLike(!like)}
 				style={style}
 				className="like"
 			/>
@@ -75,9 +80,12 @@ function HomeTweet() {
 							className={styles.text}
 							text="text"
 							name="text"
+							maxlength="280"
 							placeholder="What's up?"
+							onChange={handleChange}
 						/>
 					</div>
+					<p className={styles.count}>{count}/280</p>
 					<button className={styles.button2}>Tweet</button>
 				</div>
 				<div className={styles.middle3}>
@@ -102,9 +110,10 @@ function HomeTweet() {
 					</div>
 					<div className={styles.like}>
 						<span className={styles.like2}>
-							{personalLike} ({like})
+							{personalLike} ({like}){" "}
 						</span>
 						<span className={styles.trash}>
+							{" "}
 							<FontAwesomeIcon icon={faTrashCan} />
 						</span>
 					</div>
