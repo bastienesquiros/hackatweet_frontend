@@ -29,7 +29,7 @@ function HomeTweet() {
 		);
 	}
 
-	const returnToLoginPage = () => {
+	const handleLogoutClick = () => {
 		window.location.href = "/";
 	};
 
@@ -57,10 +57,10 @@ function HomeTweet() {
 						<h3 className={styles.name}>John</h3>
 						<h3 className={styles.name2}>@JohnCena</h3>
 						<button
-							className={styles.button1}
 							onClick={() => {
-								returnToLoginPage();
+								handleLogoutClick();
 							}}
+							className={styles.button1}
 						>
 							Logout
 						</button>
