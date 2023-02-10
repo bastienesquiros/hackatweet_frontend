@@ -6,11 +6,36 @@ import { useState } from "react";
 import Tweet from "./Tweet";
 
 function HomeTweet() {
+	const url = "http://localhost:3000/users/";
 	const [like, setLike] = useState(false);
 	const [count, setCount] = useState(0);
 
 	const handleChange = (event) => {
 		setCount(event.target.value.length);
+		const [allTweets, setAlltTweets] = useState([]);
+		const addTweet = () => {};
+		const getAllTweet = () => {
+			fetch(url + "getAllTweets")
+				.then((allTweet) => allTweet.json())
+				.then((allTweetsFromFetch) => {
+					const tweetsToDisplay = allTweetsFromFetch.allTweets.map(
+						(obj) => {
+							return (
+								<Tweet
+									firstname={obj.firstname}
+									username={obj.firstname}
+									content={obj.tweetContent}
+									hashtags={obj.hashtags}
+									likes={obj.likes}
+									id={obj._id}
+									date={obj.date}
+								/>
+							);
+						}
+					);
+					setAlltTweets([...allTweets, tweetsToDisplay]);
+				});
+		};
 	};
 
 	const personalLike = [];
@@ -87,38 +112,16 @@ function HomeTweet() {
 						/>
 					</div>
 					<p className={styles.count}>{count}/280</p>
-					<button className={styles.button2}>Tweet</button>
+					<button
+						className={styles.button2}
+						onClick={() => {
+							getAllTweet();
+						}}
+					>
+						Tweet
+					</button>
 				</div>
-				<div className={styles.middle3}>
-					<div className={styles.middle4}>
-						<Image
-							className={styles.image2}
-							src="/oeuf.png"
-							alt="oeuf"
-							width={250}
-							height={250}
-						/>
-						<h3 className={styles.name3}>Antoine</h3>
-						<h3 className={styles.name4}>@AntoineLeProf</h3>
-						<h3 className={styles.moment}> - Now</h3>
-					</div>
-					<div className={styles.middle5}>
-						<p className={styles.comment}>
-							Welcome to{" "}
-							<span className={styles.hashtag}>#hackatweet </span>
-							guys 😎
-						</p>
-					</div>
-					<div className={styles.like}>
-						<span className={styles.like2}>
-							{personalLike} ({like}){" "}
-						</span>
-						<span className={styles.trash}>
-							{" "}
-							<FontAwesomeIcon icon={faTrashCan} />
-						</span>
-					</div>
-				</div>
+				{allTweets}
 			</div>
 			<div className={styles.right}>
 				<div className={styles.right2}>

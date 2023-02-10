@@ -1,18 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	value: [],
+	value: { username: null, firstname: null },
 };
 
 export const usersSlice = createSlice({
 	name: 'users',
 	initialState,
 	reducers: {
-		addUsernameToStore: (state, action) => {
-			state.value.push(action.payload);
+		addCreditentialsToStore: (state, action) => {
+			state.value.username = action.payload.username;
+			state.value.firstname = action.payload.firstname;
 		},
 	},
 });
 
-export const { addUsernameToStore } = usersSlice.actions;
+export const { addCreditentialsToStore } = usersSlice.actions;
 export default usersSlice.reducer;
